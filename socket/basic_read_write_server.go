@@ -24,6 +24,7 @@ func main() {
 			if err != nil {
 				panic(err)
 			}
+			fmt.Printf("client addr: %s\n", cliConn.LocalAddr().String())
 			var dataBuf bytes.Buffer
 			b := make([]byte, 100)
 			data := []byte("3\n")
@@ -57,6 +58,7 @@ func main() {
 					break
 				}
 			}
+			cliConn.Close()
 		}
 	}()
 
